@@ -2,16 +2,21 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraint as Assert;
 use App\Repository\ContactRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
+
 class Contact
 {
     #[ORM\Id]
+
     #[ORM\GeneratedValue]
+
     #[ORM\Column]
+
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -22,6 +27,19 @@ class Contact
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $message = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $utilisateur = null; 
+
+    /**
+     * @Assert\Email(
+     *     message = "Veuillez saisir une adresse e-mail valide."
+     * )
+    */
+
+    /**
+     * @Assert\NotBlank(message="Le nom d'utilisateur ne peut pas être vide.")
+    */
 
     public function getId(): ?int
     {
@@ -63,4 +81,17 @@ class Contact
 
         return $this;
     }
+
+    public function getUtilisateur(): ?string
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?string $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
 }

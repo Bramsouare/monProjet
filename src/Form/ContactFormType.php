@@ -18,22 +18,31 @@ class ContactFormType extends AbstractType
         $builder
 
             ->add('utilisateur')
+
             ->add('email')
+
             ->add('object')
-            ->add('message',TextareaType::class, [
-                'label'=>'Votre message',     
+
+            ->add('message',TextareaType::class, 
+            [
+                'label' => 'Votre message',
+
                 // Ajout label et champ optionnel grâce à "required" = false:
                 'required'=>false
             ])
-            ->add('envoyer', SubmitType::class,[
-                'label'=>'Envoyer '
+
+            ->add('envoyer', SubmitType::class,
+            [
+                'label' => 'Envoyer'
             ])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([
+        $resolver->setDefaults(
+        [
+            // Le formulaire n'est associé à aucune entité !!!
             'data_class' => Contact::class,
         ]);
     }
