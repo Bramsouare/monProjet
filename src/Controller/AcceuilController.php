@@ -19,4 +19,5 @@ class AcceuilController extends AbstractController
         ]
         );
     }
+
 }
