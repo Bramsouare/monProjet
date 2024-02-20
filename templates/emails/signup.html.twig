@@ -1,0 +1,49 @@
+{% apply inline_css %}
+
+    <style>
+    
+        body 
+        {
+            background-color: skyblue;
+        }
+
+        h1, p 
+        {
+            color: #f2eded;
+        }
+
+    </style>
+
+    <div class="container-fluid">
+
+        <div class="col-12" style="text-align: center; margin-top: 5em; color: #f2eded;">
+        
+            <h1>Bienvenue {{ email.toName }}!</h1>
+
+        </div>
+
+        <p style="color: #f2eded;">
+
+            You signed up as {{ username }} the following email:
+        </p>
+
+        <p>
+
+            <code>
+
+                {{ email.to[0].address }}
+            
+            </code>
+
+        </p>
+        
+        <p>
+
+            <a href="#">Click here</a>
+            (this link is valid until {{ expiration_date | date ('F jS') }} )
+
+        </p>
+
+    </div>
+
+{% endapply %}

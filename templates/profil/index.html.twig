@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProfilController{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+
+        <div class="col-12">
+       
+            <h1 class="text-center mt-5">Informations</h1>
+
+            <div class="col-7 mx-auto">
+
+                <table class="table table-secondaire table-hover rounded-3 overflow-hidden mt-5">
+
+                    <thead>
+
+                        <tr>
+
+                            {# <th>Nom</th> #}
+                            {# <th>Prénom</th> #}
+                            <th>Email</th>
+                            {# <th>Date</th> #}
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            {# <td>{{info.nom}}</td> #}
+                            {# <td>{{info.prenom}}</td> #}
+                            <td>{{info.email}}</td>
+                            {# <td>{{info.date}}</td> #}
+                            
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

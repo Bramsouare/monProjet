@@ -4,14 +4,37 @@
 
 {% block body %}
 
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="row mt-5">
 
-            <div class="col-sm-8 offset-sm-2">
+            <div class="col-12">
 
-                <h1>Première page web avec Symfony</h1>
-                <p>Hello World !!!</p>
+                <div class="d-flex justify-content-center">
+
+                    <h1>Nombre d'artistes trouvés : {{ artistes | length }}</h1>
+
+                </div>
+                
+                <div class="mt-4"></div>
+
+                {% for artiste in artistes %} 
+
+                    <div class="card col-7 my-1 mx-auto">
+
+                        <div class="d-flex justify-content-center mt-4">
+
+                            <span class="d-block">
+
+                                {{ artiste.name |upper }} - <b class="btn-primary p-1">{{ artiste.discs | length }}</b> disques
+
+                            </span> 
+
+                        </div>
+                        
+                    </div>
+
+                {% endfor %}
 
             </div>
 

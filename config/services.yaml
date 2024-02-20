@@ -4,13 +4,19 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    images_directory: '%kernel.project_dir%/public/assets/picture'
 
 services:
+
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-
+    App\EventSubscriber\ContactSubscriber:
+        arguments:
+            $mailer: '@Symfony\Component\Mailer\MailerInterface'
+        tags:
+        - { name: doctrine.event_subscriber }
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
@@ -22,6 +28,9 @@ services:
             - '../src/Kernel.php'
             - '../src/DataFixtures/fixurePhp.php'
             - '../src/DataFixtures/record.php'
+            - '../src/EventSubscriber/ContactSubscriber.php'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+

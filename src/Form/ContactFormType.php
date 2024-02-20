@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-use App\templates\emails\contact_email;
 use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -33,7 +32,8 @@ class ContactFormType extends AbstractType
 
             ->add('envoyer', SubmitType::class,
             [
-                'label' => 'Envoyer'
+                'label' => 'Envoyer',
+                'attr' => ['class' => 'btn btn-primary']
             ])
         ;
     }

@@ -11,6 +11,7 @@
         "doctrine/doctrine-bundle": "^2.11",
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^3.0",
+        "league/commonmark": "^2.4",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.25",
         "symfony/asset": "6.4.*",
@@ -33,6 +34,7 @@
         "symfony/property-info": "6.4.*",
         "symfony/runtime": "6.4.*",
         "symfony/security-bundle": "6.4.*",
+        "symfony/sendgrid-mailer": "6.4.*",
         "symfony/serializer": "6.4.*",
         "symfony/stimulus-bundle": "^2.14",
         "symfony/string": "6.4.*",
@@ -42,7 +44,10 @@
         "symfony/validator": "6.4.*",
         "symfony/web-link": "6.4.*",
         "symfony/yaml": "6.4.*",
-        "twig/extra-bundle": "^2.12|^3.0",
+        "symfonycasts/verify-email-bundle": "^1.16",
+        "twig/cssinliner-extra": "*",
+        "twig/extra-bundle": "*",
+        "twig/markdown-extra": "^3.8",
         "twig/twig": "^2.12|^3.0"
     },
     "config": {
