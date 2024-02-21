@@ -27,7 +27,7 @@ class UserFormAuthenticator extends AbstractLoginFormAuthenticator
     use TargetPathTrait;
 
     // rediriger l'utilisateur s'il tente d'accéder à une page protégée sans être authentifié
-    public const LOGIN_ROUTE = 'app_login';
+    public const LOGIN_ROUTE = 'app_accueil';
 
     
     /*****************************************************************************************************
@@ -87,7 +87,7 @@ class UserFormAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // si aucun url est trouvé il sera redirigé vers la page profil
-        return new RedirectResponse($this->urlGenerator->generate('app_profil'));
+        return new RedirectResponse($this->urlGenerator->generate('app_accueil'));
 
         // si aucun cas n'est géré, l'exception TODO est levée avec un message indiquant qu'une redirection valide doit être fournie à l'intérieur du fichier
         throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);

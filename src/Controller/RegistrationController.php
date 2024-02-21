@@ -37,7 +37,6 @@ class RegistrationController extends AbstractController
     // une fois sur la page la method sera executer
     #[Route('/register', name: 'app_register')]
 
-
     /************************************************************************************************************************
      * REQUEST: TOUTES LES INFOS    /    USERPASSWORDHACHER: HACHE MDP    /    ENTITYMANAGER: INTERAGIE AVEC BASE DE DONNÉES  
     ************************************************************************************************************************/
@@ -63,6 +62,7 @@ class RegistrationController extends AbstractController
 
                     // l'entité ou le mdp sera associé
                     $user,
+
                     // récupère le mdp non haché saisies par l'utilisateur
                     $form->get('plainPassword')->getData()
                 )
@@ -74,25 +74,23 @@ class RegistrationController extends AbstractController
             // enregistrement de l'entité dans la base de donnée
             $entityManager->flush();
 
-
             // création d'un mail de confirmation après inscription
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
 
                 // new instance TemplateEmail
                 (new TemplatedEmail())
-
                     // expéditeur
-                    ->from(new Address('souare@gmail.com', 'ibrahima souare'))
+                    ->from(new Address('souare@gmail.com', 'ibrahima'))
                     // destinataire
                     ->to($user->getEmail())
                     // object
-                    ->subject('Email de confirmation')
+                    ->subject('Please Confirm your Email')
                     // utilise le contenue html comme un lien par exemple
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
-           
-            // redirection sur la page login
-            return $this->redirectToRoute('app_login');
+
+            // redirection sur la page 
+            return $this->redirectToRoute('app_accueil');
         }
 
         // renvoie une reponse contenant une vue 
@@ -117,10 +115,10 @@ class RegistrationController extends AbstractController
 
         // si c'est pas le cas il sera capturer dans le blocs catch
         try {
-
+            
             // cette methode valider le lien de confirmation envoyé par e-mail. Elle marque l'utilisateur comme vérifié 
             $this->emailVerifier->handleEmailConfirmation($request, $this->getUser());
-            
+
         } catch (VerifyEmailExceptionInterface $exception) {
 
             // affiche des notifications ou des messages à l'utilisateur
