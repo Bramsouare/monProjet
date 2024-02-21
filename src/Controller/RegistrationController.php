@@ -44,7 +44,7 @@ class RegistrationController extends AbstractController
 
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
-        // créatio utilisateur
+        // création utilisateur
         $user = new Utilisateur();
 
         // création d'un formulaire
@@ -109,7 +109,7 @@ class RegistrationController extends AbstractController
     /*************************************************************************
      * REQUEST: TOUTES LES INFOS    /    TRANSLATOR: TRADUCTION DES MESSAGE 
     *************************************************************************/
-    
+
     public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response
     {
         // vérifie si l'utilisateur est entièrement authentifié.
@@ -120,6 +120,7 @@ class RegistrationController extends AbstractController
 
             // cette methode valider le lien de confirmation envoyé par e-mail. Elle marque l'utilisateur comme vérifié 
             $this->emailVerifier->handleEmailConfirmation($request, $this->getUser());
+            
         } catch (VerifyEmailExceptionInterface $exception) {
 
             // affiche des notifications ou des messages à l'utilisateur

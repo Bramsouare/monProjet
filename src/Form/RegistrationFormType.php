@@ -87,7 +87,7 @@ class RegistrationFormType extends AbstractType
     }
 
     /*****************************************************************************************************
-     * OPTIONS PAR DÉFAUT DU FORMULAIRE FUSIONER AVEC LES OPTIONS DE CRÉATIONS
+     * OPTIONS PAR DÉFAUT DU FORMULAIRE FUSIOnNER AVEC LES OPTIONS DE CRÉATIONS
     *****************************************************************************************************/
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -96,7 +96,9 @@ class RegistrationFormType extends AbstractType
         $resolver->setDefaults(
 
             [
-                // les données saisies seront automatiquement transmises à une instance de la classe Utilisateur, ce qui facilite la liaison des champs du formulaire aux propriétés de l'objet Utilisateur
+                /**  les données saisies seront automatiquement transmises à une instance de la classe Utilisateur, 
+                * ce qui facilite la liaison des champs du formulaire aux propriétés de l'objet Utilisateur
+                */
                 'data_class' => Utilisateur::class,
             ]
         );

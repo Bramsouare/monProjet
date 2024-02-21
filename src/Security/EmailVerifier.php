@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Security;
-
+use App\Entity\Utilisateur;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
@@ -86,5 +86,5 @@ class EmailVerifier
         // enregistrer dans la base de données
         $this->entityManager->flush();
     }
-    
+
 }
