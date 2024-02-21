@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use App\Repository\UtilisateurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -37,22 +38,21 @@ class ProfilController extends AbstractController
 
         // getUser() renvoie l'utilisateur actuellement authentifié
         // getUserIdentifier() renvoie l'identifiant unique de cet utilisateur
-       $identifiant = $this-> getUser () -> getUserIdentifier ();
-            // si un utilisateur est connecté. Si oui, elle continue à exécuter le code à l'intérieur du bloc
-            if ($identifiant)
-            {
-                // si l'email trouvé dans la base correspondant à l'identifiant unique de l'utilisateur connecté il sera stocker dans info
-                $info = $this -> userRepo -> findOneBy (["email" => $identifiant]);
-                return $this -> render('information/index.html.twig',
-                [
-                    // affiche le template avec les infos trouvé 
-                    'info' => $info
-                ]);
-            }
-        
-        // renvoie le Template 
-       
-        
+        $identifiant = $this-> getUser () -> getUserIdentifier ();
+
+        // si un utilisateur est connecté. Si oui, elle continue à exécuter le code à l'intérieur du bloc
+        if ($identifiant)
+        {
+            // si l'email trouvé dans la base correspondant à l'identifiant unique de l'utilisateur connecté il sera stocker dans info
+            $info = $this -> userRepo -> findOneBy (["email" => $identifiant]);
+
+            // affiche la page
+            return $this -> render('information/index.html.twig',
+            [
+                // affiche le template avec les infos trouvé 
+                'info' => $info
+            ]);
+        }
         
     }
 

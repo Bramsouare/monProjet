@@ -16,37 +16,41 @@
 
             <div class="mb-3">
 
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
 
             </div>
 
         {% endif %}
 
-        <div class="d-flex justify-content-center my-5">
+        <div class="container-fluid col-10">
 
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <div class="d-flex justify-content-center my-5">
 
-        </div>
+                <h1>Veuillez vous connecter</h1>
 
-        <label for="inputEmail">Email</label>
+            </div>
 
-        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+            <label for="inputEmail">Email</label>
 
-        <label for="inputPassword">Password</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
 
-        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+            <label for="inputPassword" class="mt-5">Password</label>
 
-        <input type="hidden" name="_csrf_token"
+            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-            value="{{ csrf_token('authenticate') }}"
-        >
+            <input type="hidden" name="_csrf_token"
 
-        <button class="btn btn-lg btn-primary" type="submit">
+                value="{{ csrf_token('authenticate') }}"
+            >
 
-            Sign in
-            
-        </button>
+            <button class="btn btn-lg btn-primary mt-5" type="submit">
 
-    </form>
+                Connection
+                
+            </button>
+
+        </form>
+
+    </div>
 
 {% endblock %}
