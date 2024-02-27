@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+
+    {% if app.user %}
+
+        <div class="container-fluid rows d-flex justify-content-between">
+
+            <div class="card mt-3">
+
+                <div class="card-body"><strong>
+
+                    Vous êtes connecté en tant que : </strong> {{ app.user.userIdentifier }} 
+
+                </div>
+
+            </div>
+        
+            <div class="my-3">
+
+                <a href="{{ path('app_logout') }}" class="btn btn-secondary">Déconnexion</a>
+
+            </div>
+
+        </div>
+
+    {% endif %}
+
+    <div class="container-fluid col-10">
+
+        <div class="d-flex justify-content-center my-5">
+
+            <h1>Bienvenue</h1>
+
+        </div>
+
+        <div class="d-flex justify-content-center my-5">
+
+            <img class="d-flex justify-content-center" src="{{ asset('viny.png') }}" alt="Vinyl Record" width="600" height="600">
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

@@ -1,22 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+{% block title %}Connection{% endblock %}
 
 {% block body %}
 
     <form method="post">
 
-        {% if error %}
+        {% if erreur %}
 
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            <div class="alert alert-danger"> {{ erreur.messageKey | trans(erreur.messageData, 'security') }} </div>
 
         {% endif %}
 
         {% if app.user %}
 
-            <div class="mb-3">
+            <div class="container-fluid rows d-flex justify-content-between">
 
-                Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+                <div class="card mt-3">
+
+                    <div class="card-body"><strong>
+
+                        Vous êtes connecté en tant que : </strong> {{ app.user.userIdentifier }} 
+
+                    </div>
+
+                </div>
+            
+                <div class="my-3">
+
+                    <a href="{{ path('app_logout') }}" class="btn btn-secondary">Déconnexion</a>
+
+                </div>
 
             </div>
 
@@ -30,11 +44,11 @@
 
             </div>
 
-            <label for="username">Email</label>
+            <label for="username"> Email </label>
 
             <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
 
-            <label for="password" class="mt-5">Password</label>
+            <label for="password" class="mt-5"> Mots de passe </label>
 
             <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
 
@@ -54,7 +68,7 @@
                 </div>
             #}
 
-            <button class="btn btn-lg btn-primary mt-5" href="{{ path('app_login') }}" type="submit">
+            <button class="btn btn-lg btn-primary mt-5" type="submit">
 
                 Connection     
 

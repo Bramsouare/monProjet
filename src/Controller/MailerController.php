@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MailerController extends AbstractController
 {
-    #[Route('/email')]
+    #[Route ('/email')]
 
     // Fonction sendEmail dans le controller MailerIn.. qui attend une reponse
     public function sendEmail (MailerInterface $mailer): Response
@@ -21,7 +21,7 @@ class MailerController extends AbstractController
         
             -> from ('souarei404@gmail.com')
 
-            -> to (new Address('lsf.tdg@gmail.com'))
+            -> to (new Address ('lsf.tdg@gmail.com'))
 
             // -> cc ('cc@example.com')
             // -> bcc ('bcc@example.com')
@@ -31,18 +31,19 @@ class MailerController extends AbstractController
             -> subject ('Time for symfony Mailer !')
 
             // le chemin de la vue Twig à utiliser dans le mail
-            ->htmlTemplate('emails/signup.html.twig')
+            -> htmlTemplate ('emails/signup.html.twig')
 
             // un tableau de variable à passer à la vue; 
             // on choisit le nom d'une variable pour la vue et on lui attribue une valeur (comme dans la fonction `render`) :
-            ->context(
+            -> context(
+
                 [
                     'expiration_date' => new \DateTime('+7 days'),
                     'username' => 'foo',
-                ])
-            ;
+                ]
+            );
           
-        $mailer -> send($email);
+        $mailer -> send ($email);
 
         // Retourner une réponse
         return $this -> redirecttoRoute ('app_accueil');

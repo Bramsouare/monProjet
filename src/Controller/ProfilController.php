@@ -27,7 +27,7 @@ class ProfilController extends AbstractController
         $this -> userRepo = $userRepo;
     }
 
-    #[Route('/profil', name: 'app_profil')]
+    #[Route ('/profil', name: 'app_profil')]
 
     /*******************************************************************    
     * RESPONSABLE DE GESTIONS DE LA PAGE PROFIL
@@ -38,7 +38,7 @@ class ProfilController extends AbstractController
 
         // getUser() renvoie l'utilisateur actuellement authentifié
         // getUserIdentifier() renvoie l'identifiant unique de cet utilisateur
-        $identifiant = $this-> getUser () -> getUserIdentifier ();
+        $identifiant = $this -> getUser () -> getUserIdentifier ();
 
         // si un utilisateur est connecté. Si oui, elle continue à exécuter le code à l'intérieur du bloc
         if ($identifiant)
@@ -52,8 +52,9 @@ class ProfilController extends AbstractController
                 // affiche le template avec les infos trouvé 
                 'info' => $info
             ]);
+
         }
-        
+   
     }
 
 }

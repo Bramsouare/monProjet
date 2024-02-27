@@ -11,6 +11,7 @@ security:
                 property: email
         # used to reload user from session & other features (e.g. switch_user)
     firewalls:
+    
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
@@ -21,7 +22,7 @@ security:
             logout:
                 path: app_logout
                 # where to redirect after logout
-                # target: app_any_route
+                target: app_login
                 # where to redirect after logout
                 # target: app_any_route
 
@@ -29,10 +30,11 @@ security:
                 secret: '%kernel.secret%'
                 lifetime: 604800
                 path: /
-                always_remember_me: true
+                always_remember_me: false
             form_login:
                 login_path: app_login
                 check_path: app_login
+                default_target_path: app_bienvenue
                 enable_csrf: true
 
             # activate different ways to authenticate
@@ -45,7 +47,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/profil, roles: ROLE_USER }
 
 when@test:
     security:

@@ -1,18 +1,43 @@
-<div class="container-fluid col-10">
+{% apply inline_css %}
 
-    <div class="d-flex justify-content-center my-5">
+    <style>
+    
+        body 
+        {
+            background-color: skyblue;
+        }
 
-        <h1>Bonjour confirmer votre email!</h1>
+        h1, p 
+        {
+            color: #f2eded;
+        }
+
+    </style>
+
+    <div class="container-fluid col-10">
+
+        <div class="col-12" style="text-align: center; margin-top: 5em; color: #f2eded;">
+
+            <h1>Bonjour confirmer votre email!</h1>
+
+        </div>
+
+        <p style="color: #f2eded;">
+
+            Pour confirmer votre email click sur ce lien: <br><br>
+
+            <a href="{{ signedUrl|raw }}">Confirmer mon Email</a>.
+
+            Le lien epire dans {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+
+        </p>
+
+        <p style="color: #f2eded;">
+
+            Merci est a bientôt !
+
+        </p>
 
     </div>
-    <p>
-        Pour confirmer votre email click sur ce lien: <br><br>
-        <a href="{{ signedUrl|raw }}">Confirmer mon Email</a>.
-        Le lien epire dans {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
-    </p>
 
-    <p>
-        Cheers!
-    </p>
-
-</div>
+{% endapply %}

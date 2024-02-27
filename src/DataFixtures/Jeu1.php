@@ -39,6 +39,6 @@ class Jeu1 extends Fixture
 
         // $artist1 -> addDisc ($disc1);
 
-        $manager->flush();
+        $manager -> flush ();
     }
 }

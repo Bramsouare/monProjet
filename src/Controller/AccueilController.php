@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AcceuilController extends AbstractController
+class AccueilController extends AbstractController
 {
 
     private $artistRepo;
@@ -22,7 +22,7 @@ class AcceuilController extends AbstractController
 
     }
 
-    #[Route('/accueil', name: 'app_accueil')]
+    #[Route ('/accueil', name: 'app_accueil')]
 
     public function index (): Response
     {
@@ -36,6 +36,19 @@ class AcceuilController extends AbstractController
 
             //on va envoyer à la vue notre variable qui stocke un tableau d'objets $artistes (c'est-à-dire tous les artistes trouvés dans la base de données)
             'artistes' => $artistes
+        ]
+        );
+
+    }
+
+    #[Route('/bienvenue', name: 'app_bienvenue')]
+
+    public function bienvenue (): Response
+    {
+
+        return $this -> render ('bienvenue/bienvenue.html.twig', 
+        [
+            'controller_name' => 'AccueilController'
         ]
         );
 

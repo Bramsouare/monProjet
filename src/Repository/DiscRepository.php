@@ -16,9 +16,9 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class DiscRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct (ManagerRegistry $registry)
     {
-        parent::__construct($registry, Disc::class);
+        parent::__construct ($registry, Disc::class);
     }
 
 //    /**

@@ -29,7 +29,7 @@ class MailService
         
         -> from ($expediteur)
 
-        -> to (new Address($destinataire))
+        -> to (new Address ($destinataire))
 
         // -> cc ('cc@example.com')
         // -> bcc ('bcc@example.com')
@@ -39,19 +39,20 @@ class MailService
         -> subject ($sujet)
 
         // le chemin de la vue Twig à utiliser dans le mail
-        ->htmlTemplate('emails/signup.html.twig')
+        -> htmlTemplate ('emails/signup.html.twig')
 
         // un tableau de variable à passer à la vue; 
         // on choisit le nom d'une variable pour la vue et on lui attribue une valeur (comme dans la fonction `render`) :
-        ->context(
+        -> context(
+
             [
                 'expiration_date' => new \DateTime('+7 days'),
                 'username' => 'foo',
-            ])
-        ;
+            ]
+        );
       
-        $this -> mailer -> send($email);
-
+        $this -> mailer -> send ($email);
+        
     }
     
 }    
