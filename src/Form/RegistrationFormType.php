@@ -41,6 +41,7 @@ class RegistrationFormType extends AbstractType
 
                     // contrainte de validation
                     'constraints' => 
+
                     [
                         // si la case n'est pas cochez une alert s'affiche
                         new IsTrue(
@@ -99,7 +100,7 @@ class RegistrationFormType extends AbstractType
     }
 
     /*****************************************************************************************************
-     * OPTIONS PAR DÉFAUT DU FORMULAIRE FUSIOnNER AVEC LES OPTIONS DE CRÉATIONS
+     * OPTIONS PAR DÉFAUT DU FORMULAIRE FUSIONNER AVEC LES OPTIONS DE CRÉATIONS
     *****************************************************************************************************/
 
     public function configureOptions (OptionsResolver $resolver): void

@@ -53,10 +53,10 @@ class EmailVerifier
         // recupère le contexte actuel
         $context = $email -> getContext ();
 
-        // ajoute l'url signer len verification email
+        // ajoute l'url signer l'ors de la verification email
         $context ['signedUrl'] = $signatureComponents -> getSignedUrl ();
 
-        // traduit les message d'expiration dans template email
+        // traduit les messages d'expiration dans template email
         $context ['expiresAtMessageKey'] = $signatureComponents -> getExpirationMessageKey ();
 
         // inclue données d'expiration du mail
